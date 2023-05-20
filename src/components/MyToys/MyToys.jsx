@@ -1,20 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
+
 
 const MyToys = () => {
     useTitle('My Toys');
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
 
+
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
+        const fetchMyToys = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/myToys/${user?.email}`);
+                const data = await response.json();
                 setMyToys(data);
-            });
+            } catch (error) {
+                console.error('Error fetching toys:', error);
+            }
+        };
+
+        fetchMyToys();
     }, [user]);
+
 
     return (
         <div>
@@ -29,26 +38,28 @@ const MyToys = () => {
                             <th>Available Quantity</th>
                             <th>Update</th>
                             <th>Delete</th>
-                            
-                            
                         </tr>
                     </thead>
                     <tbody>
-                        {myToys?.map((job) => (
-                            <tr>
-
-                                <td>{job.sellerName}</td>
-                                <td>{job.name}</td>
-                                <td>{job.subCategory}</td>
-                                <td>{job.price}</td>
-                                <td>{job.quantity}</td>
-                                <td> <button className="btn bg-[#0cabfb] border-none my-2 text-white hover:bg-[#3ddbff]">
-                                    Update
-                                </button></td>
-                                <td> <button className="btn bg-[#0cabfb] border-none my-2 text-white hover:bg-[#3ddbff]">
-                                    Delete
-                                </button></td>
-
+                        {myToys?.map((myToy) => (
+                            <tr key={myToy._id}>
+                                <td>{myToy.sellerName}</td>
+                                <td>{myToy.name}</td>
+                                <td>{myToy.subCategory}</td>
+                                <td>{myToy.price}</td>
+                                <td>{myToy.quantity}</td>
+                                <td>
+                                    <Link to={`/updateToy/${myToy._id}`}> <button
+                                        className="btn bg-[#0cabfb] border-none my-2 text-white hover:bg-[#3ddbff]">
+                                        Update
+                                    </button>
+                                    </Link>
+                                </td>
+                                <td>
+                                    <button className="btn bg-[#0cabfb] border-none my-2 text-white hover:bg-[#3ddbff]">
+                                        Delete
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
