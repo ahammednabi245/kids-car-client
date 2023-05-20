@@ -14,7 +14,11 @@ const Gallery = () => {
 
                 <div className='grid gap-6 mb-4 lg:grid-cols-3 sm:grid-cols-2 p-10'>
 
-                 
+                    <div className="card card-compact w-96 bg-base-100 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:brightness-50 rotation ">
+                        <figure>
+                            <img src="https://m.media-amazon.com/images/I/81KXM3mJGeL.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="" />
+                        </figure>
+                    </div>
 
                     <div className="card card-compact w-96 bg-base-100 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:brightness-50 rotation">
                         <figure><img src="https://m.media-amazon.com/images/I/81POT1gM6dL._AC_SX569_.jpg" alt="" /></figure>
