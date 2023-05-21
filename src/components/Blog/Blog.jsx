@@ -9,7 +9,7 @@ const Blog = () => {
         <div>
             <div>
                 <div className='bg-[#eaf3fa] px-4 py-5 mt-2 shadow mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 rounded-lg'>
-                    <h1 className='text-center text-[#349ef5] text-3xl font-bold '><u>Question & Answer</u></h1>
+                    <h1 className='text-center text-[#2f9bf4] text-3xl font-bold '><u>Question & Answer</u></h1>
                 </div>
                 <div className='bg-[#f0f8ff] px-4 py-5 mt-2 shadow mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-justify rounded-lg '>
 
