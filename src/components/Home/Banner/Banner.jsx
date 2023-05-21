@@ -1,8 +1,11 @@
 import React from 'react';
 import banner1 from '../../../assets/banner1.png'
 import banner2 from '../../../assets/banner2.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Banner = () => {
+    AOS.init();
     return (
         <div>
 
@@ -22,7 +25,7 @@ const Banner = () => {
                                 <button className=" btn bg-[#0cabfb] border-none my-3 text-white hover:bg-[#3ddbff]">Shop Now</button>
                             </div>
                             <div className="mx-auto  lg:ml-96 w-80  ">
-                                <img className='rounded-full' src="https://i.ibb.co/hDMtK56/kids-driving-car.png" alt="" />
+                                <img className='rounded-full'data-aos="fade-down-left"  src="https://i.ibb.co/hDMtK56/kids-driving-car.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -39,7 +42,7 @@ const Banner = () => {
 
                         <div className='flex lg:flex-row  flex-col '>
                             <div className="w-80   ">
-                                <img className='rounded-full' src="https://fliptoy.s3.ap-south-1.amazonaws.com/ssl-img/2022/05/27142118/71dEWXwH0cL._SL1500_-510x510.jpg" alt="" />
+                                <img className='rounded-full'  src="https://fliptoy.s3.ap-south-1.amazonaws.com/ssl-img/2022/05/27142118/71dEWXwH0cL._SL1500_-510x510.jpg" alt="" />
                             </div>
 
                             <div className="hero-content text-center text-neutral-content flex 
