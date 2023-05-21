@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
 
 
@@ -42,7 +44,14 @@ const ShopByCategoryCard = ({ category }) => {
                 <div className='card-body '>
                   <h2 className='card-title'>{car.name}</h2>
                   <p className='text-justify'>Price: {car.price}</p>
-                  <p>Rating: {car.rating}</p>
+                  <p className='flex gap-2 my-3'>
+                        Ratings: <Rating
+                            placeholderRating={car.rating}
+                            readonly
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            placeholderSymbol={<FaStar className='text-[#fcb73f] '></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                            className='text-xl' /></p>
                   <div className='card-actions'>
 
 
@@ -82,7 +91,14 @@ const ShopByCategoryCard = ({ category }) => {
                 <div className='card-body '>
                   <h2 className='card-title'>{car.name}</h2>
                   <p className='text-justify'>Price: {car.price}</p>
-                  <p>Rating: {car.rating}</p>
+                  <p className='flex gap-2 my-3'>
+                        Ratings: <Rating
+                            placeholderRating={car.rating}
+                            readonly
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            placeholderSymbol={<FaStar className='text-[#fcb73f] '></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                            className='text-xl' /></p>
                   <div className='card-actions'>
                     <Link
                       to={`/details/${car.category_id}`}
@@ -119,7 +135,14 @@ const ShopByCategoryCard = ({ category }) => {
                 <div className='card-body '>
                   <h2 className='card-title'>{car.name}</h2>
                   <p className='text-justify'>Price: {car.price}</p>
-                  <p>Rating: {car.rating}</p>
+                  <p className='flex gap-2 my-3'>
+                        Ratings: <Rating
+                            placeholderRating={car.rating}
+                            readonly
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            placeholderSymbol={<FaStar className='text-[#fcb73f] '></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                            className='text-xl' /></p>
                   <div className='card-actions'>
                     <Link
                       to={`/details/${car.category_id}`}
