@@ -27,7 +27,7 @@ const AddToy = () => {
 
         // console.log(newToy);
 
-        fetch('http://localhost:5000/postToy', {
+        fetch('https://kids-car-server.vercel.app/postToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const ShopByCategory = () => {
     const [catagories, setCatagories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://kids-car-server.vercel.app/category')
             .then((res) => res.json())
             .then((data) => setCatagories(data));
     }, []);

@@ -12,7 +12,7 @@ const AllToys = () => {
     const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToys?page=${page}&limit=20`)
+        fetch(`https://kids-car-server.vercel.app/allToys?page=${page}&limit=20`)
             .then((res) => res.json())
             .then((result) => {
                 setToys(result);
@@ -49,7 +49,7 @@ const AllToys = () => {
             return;
         }
 
-        fetch(`http://localhost:5000/allToysByText/${searchText}`)
+        fetch(`https://kids-car-server.vercel.app/allToysByText/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
