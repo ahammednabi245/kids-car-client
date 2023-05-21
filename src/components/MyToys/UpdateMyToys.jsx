@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateMyToys = () => {
     const [control, setControl] = useState(false);
@@ -42,6 +43,12 @@ const UpdateMyToys = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
                     setControl(!control);
                 }
                 console.log(result);
@@ -146,7 +153,8 @@ const UpdateMyToys = () => {
                                 </label>
                             </div>
                         </div>
-                        <input type="submit" value="Add Toy" className="btn btn-wide bg-[#0cabfb] border-none my-2 ml-4 text-white hover:bg-[#3ddbff]" />
+                        <input type="submit" value="Update Toy" className="btn btn-wide bg-[#0cabfb] border-none my-2 ml-4 text-white
+                         hover:bg-[#3ddbff]" />
                     </div>
 
                 </form>
