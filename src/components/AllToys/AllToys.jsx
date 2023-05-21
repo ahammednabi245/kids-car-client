@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import AllToysTables from './AllToysTables';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AllToys = () => {
     useTitle('All Toys');
@@ -10,6 +11,9 @@ const AllToys = () => {
     const [showAllToys, setShowAllToys] = useState(false);
     const [page, setPage] = useState(1);
     const [searchText, setSearchText] = useState('');
+    const { loading } = useContext(AuthContext);
+
+   
 
     useEffect(() => {
         fetch(`https://kids-car-server.vercel.app/allToys?page=${page}&limit=20`)
@@ -64,6 +68,14 @@ const AllToys = () => {
     };
 
     const visibleToys = showAllToys ? toys : toys.slice(0, 20);
+
+    if (loading) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '100px'  }}>
+                <div className="spinner"></div>
+            </div>
+        );
+    }
 
     return (
         <div>
