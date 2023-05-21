@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../hooks/useTitle';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddToy = () => {
 
     useTitle('Add A Toy')
+    const {user} = useContext(AuthContext);
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -79,7 +81,7 @@ const AddToy = () => {
                                 <span className="label-text">Seller Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="sellerName" placeholder="Seller Name" className="input input-bordered w-full" />
+                                <input type="text" name="sellerName" defaultValue={user?.displayName} placeholder="Seller Name" className="input input-bordered w-full" />
                             </label>
                         </div>
 
@@ -88,7 +90,7 @@ const AddToy = () => {
                                 <span className="label-text">Seller Email</span>
                             </label>
                             <label className="input-group">
-                                <input type="email" name="sellerEmail" placeholder="Seller Email" className="input input-bordered w-full" />
+                                <input type="email" name="sellerEmail" defaultValue={user?.email} placeholder="Seller Email" className="input input-bordered w-full" />
                             </label>
                         </div>
 
