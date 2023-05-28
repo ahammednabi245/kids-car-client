@@ -14,7 +14,7 @@ const MyToys = () => {
     const fetchMyToys = async () => {
       try {
         const sortType = sortOption === 'Price-Ascending' ? 'ascending' : 'descending';
-        const response = await fetch(`https://kids-car-server.vercel.app/myToys/${user?.email}?type=${sortType}&value=price`);
+        const response = await fetch(`https://kids-car-server.vercel.app/myToys?email=${user?.email}&type=${sortType}&value=price`);
         const data = await response.json();
         setMyToys(data);
       } catch (error) {
